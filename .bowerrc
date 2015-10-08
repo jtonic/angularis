@@ -1,0 +1,6 @@
+{
+  "timeout": 120000,
+  "proxy": "http://pazaran:rubita1@147.67.138.13:8012",
+  "https-proxy": "http://pazaran:rubita1@147.67.138.13:8012",
+  "strict-ssl": false
+}

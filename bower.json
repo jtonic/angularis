@@ -1,0 +1,23 @@
+{
+  "name": "angularis",
+  "version": "0.1.0",
+  "authors": [
+    "Antonel Pazargic <antonel.pazargic@gmail.com>"
+  ],
+  "description": "Angularis",
+  "main": "./bin/www",
+  "moduleType": [
+    "node"
+  ],
+  "keywords": [
+    "angular",
+    "node",
+    "web"
+  ],
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "angular": "1.4.7",
+    "requirejs": "~2.1.20"
+  }
+}

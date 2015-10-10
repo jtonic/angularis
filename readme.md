@@ -6,6 +6,8 @@
 
 ### Tasks
 1. Enable the gulp
+1. [ONGOING] Functional programming with ECMA JS 6
+1. [DONE] Modules in NodeJS with CommonJS
 
 Notes:
 

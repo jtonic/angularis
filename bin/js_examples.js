@@ -6,6 +6,10 @@
 
 var _ = require('lodash');
 
+console.log(`
+====================================================================
+Basics function examples - sum, forEach, map, filter
+====================================================================`);
 var sum = (x, y) => x + y;
 console.log("sum", sum(1, 2));
 
@@ -42,17 +46,71 @@ var oldestSibling = _.chain(family)
     .value();
 console.log("Antonel", oldestSibling);
 
+console.log(`
+====================================================================
+Abstraction functions: Curry, partial functions
+====================================================================`);
+var name = _.curry((last, first) => [last, first].join(','));
+
+var pazargic = name('Pazargic');
+
+console.log('name ', name('Antonel')('Pazargic'));
+
+console.log('Irina', pazargic('Irina'));
+console.log('Antonel', pazargic('Antonel'));
+
+function log(level, target, message) {
+    console.log(`[${level}] [${target}] => ${message}`)
+}
+
+var infoConsoleLogger = _.partial(log, 'INFO', 'console');
+
+infoConsoleLogger(pazargic('Irina'));
+
+String.prototype.first = _.partial(String.prototype.substr, 0, _);
+
+console.log("Antonel is the best".first(7));
+
+String.prototype.asName = _.partial(String.prototype.replace, /(\w+)\s(\w+)/, '$2, $1');
+console.log('Antonel: ' + 'Antonel Pazargic'.asName());
 
 
+console.log(`
+====================================================================
+Functions composition
+====================================================================`);
+let str = `We can only see a shot distance
+ahead but we can see plenty there
+that needs to be done`;
 
+let explode = (str) => str.split(/\s+/);
 
+let count = (arr) => arr.length;
 
+let countWords = _.compose(count, explode);
 
+console.log('Words count', countWords(str));
 
+let check = _.curry((len, size) => size >= len);
 
+let check10 = check(10);
 
+let checkText = _.compose(check10, count, explode);
 
+console.log('check text', checkText(str));
 
+console.log(`
+====================================================================
+Simple CommonJS module example
+====================================================================`);
+var math = require('./math').math;
+console.log(`sum= ${math.sum(10, 20)}`);
+console.log(`sub= ${math.sub(20, 10)}`);
 
-
-
+console.log(`
+====================================================================
+Simple ECMAScript 6 module example.
+Warn: This example doesn't work in the node js current version - 4.1.2
+====================================================================`);
+//import {divide, multiply} from "./ejs_math"
+//console.log(`Divide 20 to 10 = ${divide(20, 10)}`);

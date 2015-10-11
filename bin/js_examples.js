@@ -114,3 +114,32 @@ Warn: This example doesn't work in the node js current version - 4.1.2
 ====================================================================`);
 //import {divide, multiply} from "./ejs_math"
 //console.log(`Divide 20 to 10 = ${divide(20, 10)}`);
+
+console.log(`
+====================================================================
+Functional data types: functors
+====================================================================`);
+var Wrapper = function(val) {
+    this.val = val;
+};
+console.log(`
+====================================================================
+Not supported yet in node js 4.2.1 Prototyping objects with closures
+====================================================================`);
+//Wrapper.prototype.map = (f) => f(this.val);
+
+var wrap = (val) => new Wrapper(val);
+Wrapper.prototype.map = function (f) {
+    return wrap(f(this.val));
+};
+
+var msg = 'Hello Antonel Ernest Pazargic !';
+let words = wrap(msg).map(_.words).val;
+let wordsCount = wrap(msg).map(_.words).map(_.size).val;
+console.log('words=', words);
+console.log('wordsCount=', wordsCount);
+
+console.log(`
+====================================================================
+Functional data types: monads
+====================================================================`);

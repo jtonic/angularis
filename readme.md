@@ -7,6 +7,8 @@
 ### Tasks
 1. Enable the gulp
 1. [ONGOING] Functional programming with ECMA JS 6
+1. [DONE]Functional data types - functors
+1. Functional data types - monads
 1. [DONE] Modules in NodeJS with CommonJS
 
 Notes:

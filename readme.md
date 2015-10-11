@@ -10,6 +10,11 @@
 1. [DONE]Functional data types - functors
 1. Functional data types - monads
 1. [DONE] Modules in NodeJS with CommonJS
+1. BDD tests with jasmine
+1. [ONGOING] lodash examples:
+    1. copy properties/functions from on object to another. (_.assign())
+ 
+    
 
 Notes:
 

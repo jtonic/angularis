@@ -19,3 +19,5 @@ _.assign(person1, person2);
 
 console.log('person1:', person1);
 
+var intersection = _.intersection([1, 2], [2, 4, 1], [2, 10, 100, 1]);
+console.log(`intersection = ${intersection}`);

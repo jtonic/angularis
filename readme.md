@@ -36,7 +36,10 @@
 1. [DONE]Functional data types - functors
 1. Functional data types - monads
 1. [DONE] Modules in NodeJS with CommonJS
-1. [ONGOING] BDD tests with jasmine
+1. [DONE] BDD tests with jasmine. The jasmine based bdd tests have been configured to run in watch mode with gulp-watch plugin
+1. AngularJS simple page
+1. Karma testing
+1. Protractor
 1. [ONGOING] lodash examples:
     1. copy properties/functions from on object to another. (_.assign())
 
@@ -47,4 +50,6 @@ The backend side javascript requires ECMAScript 6 NodeJS 4+
 #### Useful  gulp plugins:
 1. **gulp-nodemon** - incrementally run tasks
 
+#### Links
+1. protractor https://angular.github.io/protractor/#/
 

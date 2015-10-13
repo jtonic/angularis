@@ -1,6 +1,9 @@
 /**
  * Created by pazaran on 12/10/2015.
  */
+
+"use strict";
+
 var _ = require('lodash');
 
 describe("dodash", function () {

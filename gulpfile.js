@@ -21,7 +21,7 @@ gulp.task('bdd_tests', function () {
 });
 
 gulp.task('jasmine', function () {
-   return gulp.src('spec/test.js').pipe(jasmine());
+   return gulp.src('spec/*.js').pipe(jasmine());
 });
 
 gulp.task('incremental bdd', function () {

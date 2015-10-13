@@ -41,7 +41,10 @@
 1. Karma testing
 1. Protractor
 1. [ONGOING] lodash examples:
-    1. copy properties/functions from on object to another. (_.assign())
+    1. [DONE] copy properties/functions from on object to another. (_.assign())
+1. [ONGOING] Object oriented programming in ECMAScript 5.1 and 6
+1. Fix the problem of [08:04:41] Error in plugin 'gulp-jasmine' => show the runtime problem not this strange exception
+
 
 
 #### Notes:

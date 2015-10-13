@@ -28,4 +28,12 @@ gulp.task('incremental bdd', function () {
    return gulp.watch(['spec/*.js', 'bin/*.js'], ['jasmine']);
 });
 
+gulp.task('start', function () {
+    nodemon({
+        script: './bin/www'
+        , ext: 'js html'
+        , env: { 'NODE_ENV': 'development' }
+    })
+});
+
 gulp.task('default', ['js_examples']);

@@ -68,5 +68,37 @@ describe('objects', function () {
         expect(antonel.name).toBe('Antonel Pazargic');
         expect(antonel.__proto__.constructor).toEqual(Person);
         expect(antonel.__proto__).toEqual(Person.prototype);
-    })
+    });
+
+    it('Prototyping for Constructor based objects', function () {
+        function Student(name) {
+            this.name = name
+        }
+        Student.prototype.getPresentationName = function() {
+            return `Student name = ${this.name}`
+        };
+        let antonel = new Student('Antonel Ernest Pazargic');
+        expect(antonel.getPresentationName()).toEqual('Student name = Antonel Ernest Pazargic')
+    });
+
+    it('inheritance of constructor based objects', function () {
+        function School(schoolName) {
+            this.schoolName = schoolName;
+        }
+        School.prototype.getSchoolName = function () {
+            return this.schoolName;
+        };
+        function Student(studentName, schoolName) {
+            this.studentName = studentName;
+            School.call(this, schoolName);
+        }
+        Student.prototype = new School();
+        Student.prototype.constructor = Student;
+        Student.prototype.getStudentName = function () {
+            return this.studentName;
+        };
+        let antonel = new Student('Antonel Pazargic', 'School no. 5');
+        expect(antonel.getStudentName()).toBe('Antonel Pazargic');
+        expect(antonel.getSchoolName()).toBe('School no. 5');
+    });
 });

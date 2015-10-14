@@ -101,4 +101,20 @@ describe('objects', function () {
         expect(antonel.getStudentName()).toBe('Antonel Pazargic');
         expect(antonel.getSchoolName()).toBe('School no. 5');
     });
+
+    it('Primitives wrappers', function () {
+        let a = 'Antonel';
+        let b = new String('Antonel');
+        console.log(`a type = ${typeof a}`);
+        console.log(`b type = ${typeof b}`);
+        expect(true).toBe(a == b);
+        expect(false).toBe(a === b);
+        expect(a).toBe(b.valueOf());
+        expect(a).toEqual(b);
+
+        expect(typeof a).toBe('string');
+        expect(typeof b).toBe('object');
+        expect(a.length).toBe(7);
+    });
+
 });

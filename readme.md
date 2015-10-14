@@ -38,7 +38,7 @@
 1. [DONE] Modules in NodeJS with CommonJS
 1. [DONE] BDD tests with jasmine. The jasmine based bdd tests have been configured to run in watch mode with gulp-watch plugin
 1. [DONE] RequireJS support
-1. [ONGOING] AngularJS simple page
+1. [DONE] AngularJS simple page
 1. Karma testing
 1. Protractor
 1. [ONGOING] lodash examples:

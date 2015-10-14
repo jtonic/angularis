@@ -1,15 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <script data-main="views/main" src="/libs/require.js"></script>
-    <!--<script data-main="views/main" src="/bower_components/requirejs/require.js"></script>-->
 </head>
 <body>
-<!--<div ng-app="myApp" ng-controller="myCtrl">-->
-<div ng-app="myApp">
-    <!--<p>Input something in the input box:</p>-->
-    <!--<p>Name : <input type="text" ng-model="name" placeholder="Enter name here"></p>-->
-    <!--<h1>Hello {{name}}</h1>-->
+<div ng-app="myApp" ng-controller="myCtrl">
+    <p>Input something in the input box:</p>
+    <p>Name : <input type="text" ng-model="name" placeholder="Enter name here"></p>
+    <h1>Hello {{name}}</h1>
+    <button ng-click="clickMe()"> Click me!!!</button>
 </div>
+<script data-main="views/main" src="/libs/require.js"></script>
 </body>
 </html>

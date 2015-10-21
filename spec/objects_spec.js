@@ -117,4 +117,63 @@ describe('objects', function () {
         expect(a.length).toBe(7);
     });
 
+    it('inheritance', function () {
+        function A(a) {
+            this.a = a;
+        }
+        A.prototype.printA = function () {
+            console.log(this.a);
+        };
+        class B extends A {
+            constructor(a, b) {
+                super(a);
+                this.b = b;
+            }
+            printB() {
+                console.log(this.b)
+            }
+        }
+        class C extends B {
+            constructor(a, b, c) {
+                super(a, b);
+                this.c = c;
+            }
+            printC() {
+                console.log(this.c);
+            }
+
+            static getTheValueOf(c) {
+                return c.c;
+            }
+        }
+        let a = new A('a');
+        let b = new B(a.a, 'b');
+        let c = new C(b.a, b.b, 'c');
+
+        c.printA();
+        c.printB();
+        c.printC();
+
+        expect(a.a).toBe(c.a);
+        expect(a.a).toBe(b.a);
+        expect(b.b).toBe(c.b);
+
+        expect(C.getTheValueOf(c)).toBe('c');
+
+        function fun() {
+            return new D('d');
+        }
+
+        expect(fun).toThrowError(ReferenceError);
+        class D {
+            constructor(d) {
+                this.d = d;
+                return new A('a');
+            }
+        }
+        expect(new A('a') instanceof A).toBe(true, 'New A is not instance of A');
+        expect(new D('d') instanceof D).toBe(false, 'New D is instance of D');
+        expect(new D('d') instanceof A).toBe(true);
+    })
+
 });

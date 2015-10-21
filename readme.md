@@ -31,6 +31,7 @@
 1. Access the app at TODO
 
 ### Tasks
+1. [NEXT] Asynchronous programming with promises in ECMAScript 6
 1. [DONE] Enable the tasks runner gulp
 1. [ONGOING] Functional programming with ECMA JS 6
 1. [DONE]Functional data types - functors

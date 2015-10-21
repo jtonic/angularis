@@ -174,6 +174,31 @@ describe('objects', function () {
         expect(new A('a') instanceof A).toBe(true, 'New A is not instance of A');
         expect(new D('d') instanceof D).toBe(false, 'New D is instance of D');
         expect(new D('d') instanceof A).toBe(true);
+    });
+
+    it('species', function () {
+        class MyArray1{
+            static get [Symbol.species] () {
+                return this;
+            }
+
+            mapping() {
+                return new this.constructor[Symbol.species]();
+            }
+        }
+
+        class MyArray2 extends MyArray1 {
+            static get [Symbol.species] () {
+                return MyArray1;
+            }
+        }
+
+        let a1 = new MyArray2();
+        expect(a1 instanceof MyArray1).toBe(true, 'Instances of MyArray2 should be of type MyArray1');
+
+        a1 = a1.mapping();
+        expect(a1 instanceof MyArray1).toBe(true, 'Instances of MyArray2.mapping should be of type MyArray1');
+
     })
 
 });

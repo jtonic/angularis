@@ -214,5 +214,21 @@ describe('objects', function () {
         }
         let i1 = new MyConstructor();
         let i2 = new MyClass();
-    })
+    });
+
+    it('super in concise methods of the object literals', function () {
+        let var1 = {
+            print() {
+                console.log('Hello');
+            }
+        };
+        let var2 = {
+            print() {
+                super.print();
+            }
+        };
+        expect(var2.print).toThrowError(TypeError);
+        Object.setPrototypeOf(var2, var1);
+        expect(var2.print).not.toThrowError(TypeError);
+    });
 });

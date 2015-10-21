@@ -199,6 +199,20 @@ describe('objects', function () {
         a1 = a1.mapping();
         expect(a1 instanceof MyArray1).toBe(true, 'Instances of MyArray2.mapping should be of type MyArray1');
 
-    })
+    });
 
+    it('new.target - not yet supported by  node 4.2.1', function () {
+        function MyConstructor() {
+            //console.log(new.target.name);
+            console.log('new.target.name');
+        }
+
+        class MyClass extends MyConstructor {
+            constructor() {
+                super();
+            }
+        }
+        let i1 = new MyConstructor();
+        let i2 = new MyClass();
+    })
 });

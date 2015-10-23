@@ -9,8 +9,8 @@ describe('promises', function () {
     it('all', function () {
         let p1 = new Promise(function(resolve, reject) {
             setTimeout(function() {
-                console.log('Resolve 1!!!');
-                resolve();
+                console.log('Reject 1!!!');
+                reject('Error!!!');
             }, 1000)
         });
 
@@ -21,8 +21,11 @@ describe('promises', function () {
             }, 2000)
         });
 
+
        Promise.all([p1, p2]).then(function () {
            console.log('DONE!!!');
+       }).catch(function(reason) {
+           console.log(`ERROR: Failure reason: ${reason}`);
        })
     });
 

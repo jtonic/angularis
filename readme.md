@@ -32,6 +32,7 @@
 
 ### Tasks
 1. [ONGOING] Asynchronous programming with promises in ECMAScript 6
+1. [ONGOING] Reflection with ECMAScript 5 and older - Reflect API was not yet implemented in major browsers (chrome, ff, opera) and node js
 1. [DONE] Enable the tasks runner gulp
 1. [ONGOING] Functional programming with ECMA JS 6
 1. [DONE]Functional data types - functors

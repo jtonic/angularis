@@ -117,4 +117,13 @@ describe('objects', function () {
         expect(a.length).toBe(7);
     });
 
+    it('new object stuff', function () {
+        const person = {first_name: 'Antonel'};
+        const jtonic = {name: 'pazaran', __proto__: person};
+        expect(jtonic.first_name).toBe('Antonel');
+        // ES 5
+        const irina = Object.create(person, {first_name: {value: 'Irina'}});
+        expect(irina.first_name).toBe('Irina');
+    });
+
 });

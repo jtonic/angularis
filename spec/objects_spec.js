@@ -124,6 +124,32 @@ describe('objects', function () {
         // ES 5
         const irina = Object.create(person, {first_name: {value: 'Irina'}});
         expect(irina.first_name).toBe('Irina');
+
+        //ES 6
+        const roxana = Object.setPrototypeOf({name: 'Pazargic'}, {first_name: 'Roxana'});
+        expect(roxana.first_name).toBe('Roxana');
+
+        let x = {x: 12}
+        let y = {y: 13, __proto__:x}
+        let z = {z: 14, get b() {return 2}, q: {}}
+        Object.defineProperty(z, "z", {enumerable: false})
+
+        let m = {}
+
+        Object.assign(m, y, z)
+
+        expect(m.x).toBeUndefined(12)
+        expect(m.z).toBeUndefined()
+        expect(m.b).toBe(2)
     });
 
+    it('es5 odds', function () {
+        expect(-0 === 0).toBe(true)
+        expect(NaN === NaN).toBe(true)
+        expect(NaN === 0/0).toBe(true)
+
+        Object.is(-0, 0)
+        Object.is(NaN, NaN)
+        Object.is(NaN, 0/0)
+    });
 });

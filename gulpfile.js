@@ -15,7 +15,7 @@ gulp.task('js_examples', function () {
 
 gulp.task('jasmine', function () {
    return gulp.src('spec/objects_spec.js').pipe(jasmine({
-       reporter: new reporters.TapReporter
+       //reporter: new reporters.TapReporter
    }));
 });
 

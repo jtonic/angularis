@@ -36,4 +36,116 @@ describe('Collections', function () {
 
         set1.forEach((k, v, s) => console.log(`set it = ${k}`));
     });
+
+    it('iterators', function () {
+        function Iterator1() {
+            return {
+                array: [1, 2, 3, 4, 5],
+                nextIndex: 0,
+                next: function() {
+                    return this.nextIndex < this.array.length ?
+                    {value: this.array[this.nextIndex++], done: false} : {done:true}
+                }
+            }
+        }
+        let it = new Iterator1()
+
+        expect(it.next().value).toBe(1)
+        expect(it.next().value).toBe(2)
+        expect(it.next().value).toBe(3)
+        expect(it.next().value).toBe(4)
+        expect(it.next().value).toBe(5)
+        const six = it.next();
+        expect(six.value).toBe(undefined)
+        expect(six.done).toBe(true)
+
+        for(let val of [1, 2, 3, 4, 5]) {
+            console.log(`it val = ${val}`);
+            expect(val).toBeDefined()
+        }
+    });
+
+    it('iterable', function () {
+        let iterable = {
+            array: [1, 2, 3, 4, 5],
+            nextIndex: 0,
+            [Symbol.iterator]: function() {
+                return {
+                    array: this.array,
+                    nextIndex: this.nextIndex,
+                    next: function() {
+                        return this.nextIndex < this.array.length ?
+                        {value: this.array[this.nextIndex++], done: false} : {done:true}
+                    }
+                }
+            }
+        }
+
+        console.log(`typeof iterable: ${typeof iterable}`);
+
+        for(let val of iterable) {
+            console.log(`iterable val: ${val}`);
+        }
+
+        expect(iterable[Symbol.iterator]().next().value).toBe(1)
+
+    });
+
+    it('generators', function () {
+        function* generator_function() {
+            yield 1;
+            yield 2;
+            yield 3;
+            yield 4;
+            yield 5;
+        }
+
+        let generator = generator_function();
+        let iterable = generator[Symbol.iterator]();
+
+        expect(iterable.next().value).toBe(1)
+        expect(iterable.next().value).toBe(2)
+        expect(iterable.next().value).toBe(3)
+        expect(iterable.next().value).toBe(4)
+        expect(iterable.next().value).toBe(5)
+        const six = iterable.next();
+        expect(six.value).toBe(undefined)
+        expect(six.done).toBe(true)
+
+        generator = generator_function()
+        // for of expression
+        for(var val of generator) {
+            console.log(`val = ${val}`)
+            expect(val).toBeDefined()
+        }
+
+    });
+
+    it('for of support of iterable', function () {
+        let iterable = {
+            [Symbol.iterator]() {
+                let step = 0;
+                let iterator = {
+                    next() {
+                        if (step <= 2) {
+                            step++;
+                        }
+                        switch (step) {
+                            case 1:
+                                return { value: 'hello', done: false };
+                            case 2:
+                                return { value: 'world', done: false };
+                            default:
+                                return { value: undefined, done: true };
+                        }
+                    }
+                };
+                return iterator;
+            }
+        };
+
+        for (let x of iterable) {
+            console.log(x);
+        }
+    });
 });

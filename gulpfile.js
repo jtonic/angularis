@@ -14,7 +14,7 @@ gulp.task('js_examples', function () {
 });
 
 gulp.task('jasmine', function () {
-   return gulp.src('spec/collections_spec.js').pipe(jasmine({
+   return gulp.src('spec/functions_spec.js').pipe(jasmine({
        //reporter: new reporters.TapReporter
    }));
 });

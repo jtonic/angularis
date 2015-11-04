@@ -43,4 +43,4 @@ gulp.task('start', function () {
     })
 });
 
-gulp.task('default', ['incremental bdd']);
+gulp.task('default', ['jasmine', 'incremental bdd']);

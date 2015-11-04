@@ -58,4 +58,23 @@ describe('inheritance', function() {
         expect(mouse.get_name()).toBe('Jerry')
         expect(mouse.says()).toBe('The mouse says my name is Jerry')
     })
+
+    it('differential inheritance', function() {
+        let myMammal = {
+            name: 'Tom',
+            get_name: function() {
+                return this.name;
+            },
+            says : function(){
+                return this.saying || '';
+            }
+        }
+        let cat = Object.create(myMammal)
+        cat.saying = 'meow'
+
+        expect(cat.says()).toBe('meow')
+        expect(cat.get_name()).toBe('Tom')
+        cat.name = 'Tommy'
+        expect(cat.get_name()).toBe('Tommy')
+    })
 })

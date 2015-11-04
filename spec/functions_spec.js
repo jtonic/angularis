@@ -2,20 +2,23 @@
  * Created by jtonic on 01.11.2015.
  */
 
+"use strict";
 
-describe('functions', function() {
-    it('exceptions', function() {
+var _ = require('underscore');
+
+describe('Functions', function() {
+    it('Exceptions', function() {
         var add = function (a, b) {
             if(typeof a !== 'number' || typeof b !== 'number') {
                 throw new TypeError('operands need to be numbers');
             }
             return a + b
         }
-
         expect(add(1, 2)).toBe(3);
         expect(add.bind(null, '1', '2')).toThrow();
-        expect(add.bind(null, null, undefined)).toThrowError(TypeError);
+        expect(add.bind(null, null, null)).toThrowError(TypeError);
     })
+
 
     it('Augmenting the builtin types', function() {
         Function.prototype.method = function(name, func) {
@@ -27,7 +30,14 @@ describe('functions', function() {
         Number.method('integer', function () {
             return Math[this < 0 ? 'ceil' : 'floor'](this)
         })
+
         expect((-10 / 3).integer()).toBe(-3)
         expect((10 / 3).integer()).toBe(3)
+    })
+
+    it('Scope', function() {
+        var fade = function(node) {
+
+        }
     })
 })

@@ -29,5 +29,16 @@ describe('Arrays', function () {
         console.log(numbers.sort())
 
         expect(numbers.sort(function(a, b){return a - b})).toEqual([2, 5,  10, 21, 34,  101])
+
+
+        const letters = ['a', 'b', 'c'];
+        const removed = letters.splice(1, 1, 'a1', 'b1', 'b2')
+        expect(removed).toEqual(['b'])
+        expect(letters).toEqual(['a', 'a1', 'b1', 'b2', 'c'])
+
+        const figures = [1, 2, 3, 4]
+        const newSize = figures.unshift(-1, 0);
+        expect(newSize).toBe(6)
+        expect(figures).toEqual([-1, 0, 1, 2, 3, 4])
     })
 })

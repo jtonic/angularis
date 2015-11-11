@@ -16,7 +16,7 @@ gulp.task('js_examples', function () {
 });
 
 gulp.task('jasmine', function () {
-   return gulp.src('spec/jstgp/inheritance_spec.js').pipe(jasmine({
+   return gulp.src('spec/jstgp/arrays_spec.js').pipe(jasmine({
        //integration: true,
        jasmineVersion: '2.3',
        reporter: new SpecReporter()

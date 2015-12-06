@@ -48,6 +48,9 @@
 1. [ONGOING] Object oriented programming in ECMAScript 5.1 and 6
 1. Fix the problem of [08:04:41] Error in plugin 'gulp-jasmine' => show the runtime problem not this strange exception
 1. [ONGOING] OOP in JS
+1. Functional programming in JS
+    1. Lazy library
+
 
 
 
